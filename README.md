@@ -24,7 +24,7 @@ This PHP script is compatible with the [Pushover App](https://pushover.net/) (av
 
 ## PhantomJS issues
 If you are having issues with PhantomJS binary (empty header and body content from response, for example), please read this solutions:
-https://github.com/jonnnnyw/php-phantomjs/issues/9#issuecomment-39685608
-https://github.com/jonnnnyw/php-phantomjs/issues/86#issuecomment-229947749
+* https://github.com/jonnnnyw/php-phantomjs/issues/9#issuecomment-39685608
+* https://github.com/jonnnnyw/php-phantomjs/issues/86#issuecomment-229947749
 
 Probably you will need download the latest version from [PhantomJS binary](http://phantomjs.org/download.html) compatible with your system.
