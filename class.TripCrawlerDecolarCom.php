@@ -205,7 +205,7 @@ class TripCrawlerDecolarCom {
 			$html = $this->get_url_content( $url );
 		}
 		
-		if ( ! empty( $html ) ) {
+		if ( ! is_numeric( $html ) ) {
 			$dom = new DOMDocument();
 			$dom->loadHTML( $html );
 			$xpath = new DOMXPath( $dom );
@@ -240,7 +240,7 @@ class TripCrawlerDecolarCom {
 				$message['error'] = 'Empty prices';
 			}
 		} else {
-			$message['error'] = 'Empty HTML';
+			$message['error'] = 'HTTP status code -> ' . $html;
 		}
 		
 		return $message;
@@ -335,16 +335,16 @@ class TripCrawlerDecolarCom {
 		$client->getEngine()->setPath( $this->phantomjs_bin );
 		
 		$request = $client->getMessageFactory()->createRequest( $url, 'GET' );
-		$request->setTimeout( 10000 ); // Will render page if this timeout is reached and resources haven't finished loading
+		$request->setTimeout( 15000 ); // Will render page if this timeout is reached and resources haven't finished loading
 		
 		$response = $client->getMessageFactory()->createResponse();
 		$client->send( $request, $response );
 
-		if ( 200 === $response->getStatus() ) {
+		if ( 200 === $response->getStatus() || 302 === $response->getStatus() ) {
 			return $response->getContent();
 		}
 
-		return '';
+		return $response->getStatus();
 	}
 
 	/**
