@@ -340,7 +340,7 @@ class TripCrawlerDecolarCom {
 		$response = $client->getMessageFactory()->createResponse();
 		$client->send( $request, $response );
 
-		if ( 200 === $response->getStatus() || 302 === $response->getStatus() ) {
+		if ( 200 === $response->getStatus() || 301 === $response->getStatus() || 302 === $response->getStatus() ) {
 			return $response->getContent();
 		}
 
