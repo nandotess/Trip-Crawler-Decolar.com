@@ -1,4 +1,4 @@
-# Trip Crawler - Decolar.com
+# PHP Script: Trip Crawler - Decolar.com
 A PHP script/crawler to get from [Decolar.com](http://www.decolar.com/) flight tickets promotions and send alerts (e-mail and/or [Pushover App](https://pushover.net/)) for who you want.
 
 ## About me
